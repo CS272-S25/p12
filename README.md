@@ -2,4 +2,4 @@
 
 Hello, CS472! This is where you can document your group project.
 
-So far we have a home page and an NBA 2024-2025 season stat leaders page. 
+So far we have a home page, a NBA 2024-2025 season stat leaders page, a NBA about page and a season tickets page. 

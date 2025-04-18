@@ -158,6 +158,7 @@
           const imageTd = document.createElement('td')
           const img = document.createElement('img')
           img.src = `https://github.com/klunn91/team-logos/blob/master/NBA/${t.short_name}.png?raw=true`
+          img.alt = t.full_name + 'logo';
           img.style.width = '35px'
           imageTd.appendChild(img)
           tr.appendChild(imageTd)

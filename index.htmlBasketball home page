@@ -1,0 +1,125 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+      <link rel ='stylesheet' href="stylesheet.css">
+   </head>
+
+      <body>
+   <div class = "text-center ">
+      </div>
+      <div class="d-flex gap-2">
+         <div class="dropdown">
+           <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+             NBA
+           </button>
+           <ul class="dropdown-menu">
+             <li><a class="dropdown-item" href="http://127.0.0.1:3000/Player selector">Stat leaders</a></li>
+             <li><a class="dropdown-item" href="http://127.0.0.1:3000/NBA about page">About NBA</a></li>
+             <li><a class="dropdown-item" href="http://127.0.0.1:3000/NBA season tickets">Season Tickets</a></li>
+             <li><hr class="dropdown-divider"></li>
+             <li><a class="dropdown-item" href="#">Something else here</a></li>
+           </ul>
+         </div>
+         <div class="d-flex gap-2">
+            <div class="dropdown">
+              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                NCAA
+              </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="">Stats leaders</a></li>
+                <li><a class="dropdown-item" href="ANOTHER_PAGE_URL_1">Another Page 1</a></li>
+                <li><a class="dropdown-item" href="ANOTHER_PAGE_URL_2">Another Page 2</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
+              </ul>
+            </div>
+            <div class="d-flex gap-2">
+               <div class="dropdown">
+                 <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Olympics
+                 </button>
+                 <ul class="dropdown-menu">
+                   <li><a class="dropdown-item" href="">TBD</a></li>
+                   <li><a class="dropdown-item" href="ANOTHER_PAGE_URL_1">Another Page 1</a></li>
+                   <li><a class="dropdown-item" href="ANOTHER_PAGE_URL_2">Another Page 2</a></li>
+                   <li><hr class="dropdown-divider"></li>
+                   <li><a class="dropdown-item" href="#">Something else here</a></li>
+                 </ul>
+               </div>
+       
+
+</div>  
+<div> 
+<button type="button" class="btn btn-primary">Fantasty</button>
+</div>      
+
+<title> Basketball for all</title>
+
+
+<div class="text-center mt-3">
+<h1> All Basketball </h1>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous"></script>
+<img src="Lebron James.jpeg" class = "img-fluid"  alt = "LebronJames">
+<img src = "Cooper Flag.jpeg" height = 300 width = 300 class = "img-fluid" alt = "CooperFlag">
+<img src = "Caitlin Clark.jpeg" class = "img-fluid" alt = "CaitlinClark">
+</div>
+<div class = "text-center ">
+
+<p> Welcome to a website catered towards basketball fans of college, professional and olympic basketball or anything inbetween! </p>
+</div>
+</div>
+
+
+
+ <div class="container py-5">
+   <h2>Latest Blog Posts</h2>
+   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+     <div class="col">
+       <div class="card h-100">
+         <img src="path/to/nba-image.jpg" class="card-img-top" alt="NBA Trending Topics">
+         <div class="card-body">
+           <h5 class="card-title">NBA National Basketball Association</h5>
+           <p class="card-text">NBA trending topics and articles.</p>
+           <a href="https://www.nba.com/news/category/trending-topics" class="btn btn-primary">Read More</a>
+         </div>
+         <div class="card-footer">
+           <small class="text-muted">Always up to date</small>
+         </div>
+       </div>
+     </div>
+     <div class="col">
+       <div class="card h-100">
+         <img src="path/to/another-blog-image.jpg" class="card-img-top" alt="Another Blog Post">
+         <div class="card-body">
+           <h5 class="card-title">NCAA National Collegiate Athletic Association</h5>
+           <p class="card-text">NCAA trending topics and stories.</p>
+           <a href="https://www.ncaa.com/" class="btn btn-primary">Read More</a>
+         </div>
+         <div class="card-footer">
+           <small class="text-muted">Always up to date</small>
+         </div>
+       </div>
+     </div>
+     <div class="col">
+      <div class="card h-100">
+        <img src="path/to/another-blog-image.jpg" class="card-img-top" alt="Another Blog Post">
+        <div class="card-body">
+          <h5 class="card-title">Olympics Basketball</h5>
+          <p class="card-text">Quick basketball hisotry and basketball spotlight articles.</p>
+          <a href="https://www.olympics.com/en/sports/basketball" class="btn btn-primary">Read More</a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Always up to date</small>
+        </div>
+      </div>
+    </div>
+   </div>
+ </div>
+ 
+ 
+
+   </body>
+</html>

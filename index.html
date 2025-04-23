@@ -160,6 +160,125 @@
     </a>
     <p style="color: #777; font-size: 0.9em; margin-top: 15px;">Don't miss a single game. Live scores, highlights, and analysis available.</p>
   </div>
+  <div id="blog-container">
+    <div class="blog-post-debate" id="goat-debate">
+        <h2>The GOAT Debate: Jordan vs. LeBron</h2>
+        <p>
+            The debate over the greatest basketball player of all time (GOAT) continues to rage on. Is it Michael Jordan, with his perfect record in the Finals and unmatched competitive fire? Or is it LeBron James, with his incredible all-around game, longevity, and statistical dominance?
+        </p>
+
+        <h3>Comments:</h3>
+<div class = "text-center">
+        <div id="comments-section">
+            <div class="comment">
+                <strong class="user">MJFan84:</strong>
+                <p>Jordan is the GOAT, and it's not even close. 6-0 in the Finals, 5x MVP, Defensive Player of the Year. He was a killer.</p>
+            </div>
+
+            <div class="comment">
+                <strong class="user">LeGOAT3:</strong>
+                <p>LeBron's numbers are insane: 4x MVP, 4x Finals MVP, and he's still going strong. He does everything on the court.</p>
+            </div>
+
+            <div class="comment">
+              <strong class="user">OldSchoolBaller:</strong>
+              <p>You guys are forgetting about Kareem! Most points all-time, 6x MVP, skyhook was unstoppable. Different era, but he was dominant.</p>
+            </div>
+
+            <div class="comment">
+              <strong class="user">Currystan:</strong>
+              <p>The game has changed. Steph Curry is the most influential player of this generation. His shooting range is unreal.</p>
+            </div>
+
+            <div class="comment">
+              <strong class="user">LeBron23:</strong>
+              <p>Curry is great, but he's not in the GOAT conversation. LeBron's body of work is just more impressive.</p>
+            </div>
+
+            <div class="comment">
+              <strong class="user">Pointgod:</strong>
+              <p>LeBron had to form superteams to win. Jordan won with the Bulls. That's the difference.</p>
+            </div>
+
+            <div class="comment">
+              <strong class="user">  Lelove:</strong>
+              <p>It's not just about rings. LeBron's advanced stats are off the charts. Look at his Player Efficiency Rating (PER) and Value Over Replacement Player (VORP).</p>
+            </div>
+           
+            <div class="comment">
+              <strong class="user">  Philip:</strong>
+              <p> Lebron is quantity and Jordan is quality. The debate is quantity vs quality. Either one wins. </p>
+            </div>
+
+            <div class="comment">
+              <strong class="user">OldSchoolBaller:</strong>
+              <p>All this analytics stuff is ruining the game. Back in my day, it was about toughness and fundamentals!</p>
+            </div>
+        </div>
+
+        <div class="add-comment">
+            <div class="input-container">
+              <textarea id="comment-input" placeholder="Add your comment to the debate..."></textarea>
+             
+              </div>
+            </div>
+            <button id="submit-comment">Submit</button>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+   const postList = document.getElementById('post-list');
+    const blogContainer = document.getElementById('blog-container');
+    const commentInput = document.getElementById('comment-input');
+    const submitButton = document.getElementById('submit-comment');
+    const commentsSection = document.getElementById('comments-section');
+    const dropdownBtn = document.querySelector('.dropdown-btn');
+    const dropdownContent = document.querySelector('.dropdown-content');
+
+    const blogPosts = {
+        'goat-debate': document.getElementById('goat-debate'),
+    };
+
+  dropdownBtn.addEventListener('click', () => {
+    dropdownContent.classList.toggle('show');
+  });
+
+ 
+  window.addEventListener('click', (event) => {
+    if (!event.target.matches('.dropdown-btn') && !event.target.closest('.dropdown-content')) {
+      dropdownContent.classList.remove('show');
+    }
+  });
+
+    postList.addEventListener('click', (event) => {
+        event.preventDefault();
+        const postId = event.target.dataset.post;
+        if (blogPosts[postId]) {
+            
+            for (const key in blogPosts) {
+                blogPosts[key].style.display = 'none';
+            }
+           
+            blogPosts[postId].style.display = 'flex';
+            blogContainer.style.display = 'block'; 
+             dropdownContent.classList.remove('show');
+        }
+    });
+
+    submitButton.addEventListener('click', () => {
+        const commentText = commentInput.value.trim();
+        if (commentText !== '') {
+            const newComment = document.createElement('div');
+            newComment.classList.add('comment');
+            newComment.innerHTML = `<strong class="user">You:</strong><p>${commentText}</p>`;
+            commentsSection.appendChild(newComment);
+            commentInput.value = ''; 
+        } else {
+            alert('Please enter a comment before submitting.'); 
+        }
+    });
+</script>
   <section class="container py-5">
     <h2 class="mb-4">Latest Blog Posts</h2>
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">

@@ -16,39 +16,93 @@
 <body>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Basketball for All</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <a class="navbar-brand" href="#">Basketball for All</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNav"
+        aria-controls="mainNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="mainNav">
         <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="nba_standings.html">NBA</a></li>
-          <li class="nav-item"><a class="nav-link" href="ncaa_standings.html">NCAA</a></li>
-          <li class="nav-item"><a class="nav-link" href="Olympics winners.html">Olympics</a></li>
-          <li class="nav-item"><a class="nav-link" href="NBA gamechangers.html">Game Changers</a></li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="nbaDropdown"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >NBA</a>
+            <ul class="dropdown-menu" aria-labelledby="nbaDropdown">
+              <li><a class="dropdown-item" href="NBA stat leaders.html">Stat Leaders</a></li>
+              <li><a class="dropdown-item" href="NBA about page.html">About NBA</a></li>
+              <li><a class="dropdown-item" href="NBA season tickets.html">Season Tickets</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="nba_standings.html">Standings</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="ncaadrop"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >NCAA</a>
+            <ul class="dropdown-menu" aria-labelledby="ncaadrop">
+              <li><a class="dropdown-item" href="NCAA stat leaders.html">Stat Leaders</a></li>
+              <li><a class="dropdown-item" href="NCAA team stats.html">Team offense Stats 1</a></li>
+              <li><a class="dropdown-item" href="#">Another Page 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="olympicsDrop"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >Olympics</a>
+            <ul class="dropdown-menu" aria-labelledby="olympicsDrop">
+              <li><a class="dropdown-item" href="About Olympics Basketball.html">About Olympics Basketball</a></li>
+              <li><a class="dropdown-item" href="Olympics winners.html">Olympics Winners</a></li>
+              <li><a class="dropdown-item" href="#">Another Page 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="olympicsDrop"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >Game Changers</a>
+            <ul class="dropdown-menu" aria-labelledby="olympicsDrop">
+              <li><a class="dropdown-item" href="NBA gamechangers.html">NBA gamechangers</a></li>
+              <li><a class="dropdown-item" href="#">Another Page 1</a></li>
+              <li><a class="dropdown-item" href="#">Another Page 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="btn btn-outline-light ms-2" href="#">Fantasy</a>
+          </li>
         </ul>
       </div>
     </div>
-  </nav>  <section class="container my-5">
-        <h2 class="text-center mb-4">NBA Game Changers</h2>
-        <p class="text-center mb-5">The NBA has been shaped by extraordinary players who revolutionized the game. Here are a few iconic figures who left an indelible mark:</p>
-      
-        <div class="row row-cols-1 row-cols-md-2 g-4">
-      
-          <!-- Bill Russell -->
-          <div class="col">
-            <div class="card h-100">
-              <img src="Bill Russel.jpeg" class="card-img-top" alt="Bill Russell holding championship trophy">
-              <div class="card-body">
-                <h5 class="card-title">Bill Russell</h5>
-                <p class="card-text">Bill Russell was the ultimate winner, securing 11 NBA championships in just 13 seasons with the Boston Celtics. His unmatched shot-blocking and rebounding skills made defense a true art form. Beyond the stats, Russell was a pioneer for player leadership and social activism during a turbulent era. He proved that selflessness and team-first mentality could dominate a star-driven league. Today, the NBA Finals MVP trophy is named in his honor, reflecting his towering legacy.
+  </nav>
 
-                </p>
-              </div>
-            </div>
-          </div>
-      
           <!-- Magic Johnson & Larry Bird -->
           <div class="col">
             <div class="card h-100">

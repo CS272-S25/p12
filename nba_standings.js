@@ -1,3 +1,4 @@
+const TEAM_LOGOS = getNBALogos();
 (async function() {
     const season = 2024;
     const headers = {
@@ -157,8 +158,9 @@
 
           const imageTd = document.createElement('td')
           const img = document.createElement('img')
-          img.src = `https://github.com/klunn91/team-logos/blob/master/NBA/${t.short_name}.png?raw=true`
-          img.alt = t.full_name + 'logo';
+          img.src = TEAM_LOGOS[t.full_name]
+          console.log(t.full_name + ' LOGO')
+          img.alt = t.full_name + ' logo';
           img.style.width = '35px'
           imageTd.appendChild(img)
           tr.appendChild(imageTd)

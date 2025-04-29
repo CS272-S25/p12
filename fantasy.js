@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let playerMap = {};
 
   const headers = {
-    Authorization: "Bearer 9fa957b6-ed86-4322-8679-b35a344f21ee"
+    Authorization: "Bearer ${9fa957b6-ed86-4322-8679-b35a344f21ee}"
   };
 
   fetch("https://api.balldontlie.io/v1/players", { headers })

@@ -1,18 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const positions = ["pg", "sg", "sf", "pf", "c"];
   const season = 2023;
-  const apiKey = '9fa957b6-ed86-4322-8679-b35a344f21ee'
-  let playerMap = {}; // { playerId: fullName }
+  let playerMap = {};
 
-  // Fetch first 100 players
-fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
-    headers: {
-    Authorization: `Bearer ${apiKey}`,
-  },
-})
+  // Load first 100 players
+  fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
     .then(res => res.json())
     .then(data => {
       const players = data.data;
+
       playerMap = Object.fromEntries(
         players.map(p => [p.id, `${p.first_name} ${p.last_name}`])
       );
@@ -35,7 +31,7 @@ fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
         });
       });
 
-      // Load saved team once player data is ready
+      // Restore saved team
       const saved = localStorage.getItem("fantasyTeam");
       if (saved) {
         const team = JSON.parse(saved);
@@ -45,15 +41,11 @@ fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
             document.getElementById(pos).value = id;
           }
         });
-        displayTeamWithStats(team);
+        displayTeamOnly(team);
       }
-    })
-    .catch(err => {
-      console.error("Could not load players:", err);
-      alert("Failed to load player list. Please try again later.");
     });
 
-  document.getElementById("fantasyForm").addEventListener("submit", async (e) => {
+  document.getElementById("fantasyForm").addEventListener("submit", (e) => {
     e.preventDefault();
 
     const team = {};
@@ -63,43 +55,18 @@ fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
     });
 
     localStorage.setItem("fantasyTeam", JSON.stringify(team));
-
-    displayTeamWithStats(team);
+    displayTeamOnly(team);
   });
 
-  async function displayTeamWithStats(team) {
-    const playerIds = Object.values(team);
-    const query = playerIds.map(id => `player_ids[]=${id}`).join("&");
-    const url = `${proxy}${baseUrl}/season_averages?season=${season}&${query}`;
-
-    const res = await fetch(url);
-    const data = await res.json();
-    const statsList = data.data;
-
+  function displayTeamOnly(team) {
     const teamDisplay = document.getElementById("teamDisplay");
     const totalScoreEl = document.getElementById("totalScore");
     teamDisplay.innerHTML = "";
     totalScoreEl.textContent = "";
 
-    let totalScore = 0;
-
     for (const pos in team) {
       const playerId = team[pos];
-      const stats = statsList.find(p => p.player_id === playerId);
       const name = playerMap[playerId] || "Unknown Player";
-
-      let points = 0;
-      if (stats) {
-        points =
-          stats.pts +
-          stats.reb * 1.2 +
-          stats.ast * 1.5 +
-          stats.stl * 3 +
-          stats.blk * 3 -
-          stats.turnover;
-
-        totalScore += points;
-      }
 
       const card = document.createElement("div");
       card.className = "col-md-4";
@@ -107,24 +74,13 @@ fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
       card.innerHTML = `
         <div class="card h-100 shadow-sm">
           <div class="card-body">
-            <h5 class="card-title">${pos} - ${name}</h5>
-            ${
-              stats
-                ? `
-              <p class="card-text">
-                PTS: ${stats.pts} | REB: ${stats.reb} | AST: ${stats.ast}<br>
-                STL: ${stats.stl} | BLK: ${stats.blk} | TO: ${stats.turnover}<br>
-                <strong>Fantasy Points:</strong> ${points.toFixed(1)}
-              </p>`
-                : `<p class="text-muted">No stats available</p>`
-            }
+            <h5 class="card-title">${pos}</h5>
+            <p class="card-text">${name}</p>
           </div>
         </div>
       `;
 
       teamDisplay.appendChild(card);
     }
-
-    totalScoreEl.textContent = `Total Team Fantasy Score: ${totalScore.toFixed(1)}`;
   }
 });

@@ -1,18 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const positions = ["pg", "sg", "sf", "pf", "c"];
-  const season = 2023;
   let playerMap = {};
 
-  // Load first 100 players
-  fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
+  const headers = {
+    Authorization: "Bearer 9fa957b6-ed86-4322-8679-b35a344f21ee"
+  };
+
+  // Fetch player list (with auth)
+  fetch("https://api.balldontlie.io/v1/players?per_page=100", { headers })
     .then(res => res.json())
     .then(data => {
       const players = data.data;
 
+      // Build ID → Full Name map
       playerMap = Object.fromEntries(
         players.map(p => [p.id, `${p.first_name} ${p.last_name}`])
       );
 
+      // Populate dropdowns
       positions.forEach(pos => {
         const select = document.getElementById(pos);
         select.innerHTML = "";
@@ -31,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // Restore saved team
+      // Load saved team if available
       const saved = localStorage.getItem("fantasyTeam");
       if (saved) {
         const team = JSON.parse(saved);
@@ -41,8 +46,12 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById(pos).value = id;
           }
         });
-        displayTeamOnly(team);
+        displayTeam(team);
       }
+    })
+    .catch(err => {
+      console.error("Could not load players:", err);
+      alert("Failed to load players. Please check your API key or try again later.");
     });
 
   document.getElementById("fantasyForm").addEventListener("submit", (e) => {
@@ -55,14 +64,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     localStorage.setItem("fantasyTeam", JSON.stringify(team));
-    displayTeamOnly(team);
+    displayTeam(team);
   });
 
-  function displayTeamOnly(team) {
+  function displayTeam(team) {
     const teamDisplay = document.getElementById("teamDisplay");
-    const totalScoreEl = document.getElementById("totalScore");
     teamDisplay.innerHTML = "";
-    totalScoreEl.textContent = "";
 
     for (const pos in team) {
       const playerId = team[pos];

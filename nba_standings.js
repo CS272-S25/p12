@@ -139,7 +139,11 @@ const TEAM_LOGOS = getNBALogos();
         h2.textContent = `${conf}ern Conference`;
         section.appendChild(h2);
 
+        const wrapper = document.createElement('div');
+        wrapper.className = 'table-responsive';
+
         const table = document.createElement('table');
+        table.className = 'table table-striped table-hover align-middle mb-0';
 
         // header
         const thead = document.createElement('thead');
@@ -161,7 +165,7 @@ const TEAM_LOGOS = getNBALogos();
           img.src = TEAM_LOGOS[t.full_name]
           console.log(t.full_name + ' LOGO')
           img.alt = t.full_name + ' logo';
-          img.style.width = '35px'
+          img.style.width = '50px'
           imageTd.appendChild(img)
           tr.appendChild(imageTd)
           const tdName = document.createElement('td');
@@ -193,7 +197,8 @@ const TEAM_LOGOS = getNBALogos();
         });
         table.appendChild(tbody);
 
-        section.appendChild(table);
+        wrapper.appendChild(table);
+        section.appendChild(wrapper);
         container.appendChild(section);
       });
     } catch (err) {

@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Authorization: "Bearer 9fa957b6-ed86-4322-8679-b35a344f21ee"
   };
 
-  fetch("https://api.balldontlie.io/v1/players?per_page=100", { headers })
+  fetch("https://api.balldontlie.io/v1/players", { headers })
     .then(res => {
       if (!res.ok) throw new Error("Failed to fetch player data.");
       return res.json();

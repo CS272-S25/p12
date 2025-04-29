@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Basketball for All</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
+  <link rel="stylesheet" href="stylesheet.css" />
+  <style>
+    .comparison-container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .player-select-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    .player-select-container select {
+      width: 48%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .stats-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .stats-table thead th,
+    .stats-table tbody td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .stats-table thead th {
+      background-color: #f0f0f0;
+    }
+
+    .stats-table tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    #compareButton {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #compareButton:hover {
+      background-color: #0056b3;
+    }
+
+    #error-message {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Basketball for All</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="nbaDropdown" data-bs-toggle="dropdown"
+              aria-expanded="false">NBA</a>
+            <ul class="dropdown-menu" aria-labelledby="nbaDropdown">
+              <li><a class="dropdown-item" href="NBA stat leaders.html">Stat Leaders</a></li>
+              <li><a class="dropdown-item" href="NBA about page.html">About NBA</a></li>
+              <li><a class="dropdown-item" href="NBA season tickets.html">Season Tickets</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="nba_standings.html">Standings</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="ncaadrop" data-bs-toggle="dropdown"
+              aria-expanded="false">NCAA</a>
+            <ul class="dropdown-menu" aria-labelledby="ncaadrop">
+              <li><a class="dropdown-item" href="NCAA stat leaders.html">Stat Leaders</a></li>
+              <li><a class="dropdown-item" href="NCAA team stats.html">NCAA team offense stats</a></li>
+              <li><a class="dropdown-item" href="NCAA standings.html">NCAA top standings</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="olympicsDrop" data-bs-toggle="dropdown"
+              aria-expanded="false">Olympics</a>
+            <ul class="dropdown-menu" aria-labelledby="olympicsDrop">
+              <li><a class="dropdown-item" href="About Olympics Basketball.html">About Olympics Basketball</a></li>
+              <li><a class="dropdown-item" href="Olympics winners.html">Olympics Winners</a></li>
+              <li><a class="dropdown-item" href="Olympics Legacy.html">Olympic Basketball Legacy</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="gameChangersDrop" data-bs-toggle="dropdown"
+              aria-expanded="false">Game Changers</a>
+            <ul class="dropdown-menu" aria-labelledby="gameChangersDrop">
+              <li><a class="dropdown-item" href="NBA gamechangers.html">NBA gamechangers</a></li>
+              <li><a class="dropdown-item" href="NCAA gamechangers.html">NCAA gamechangers</a></li>
+              <li><a class="dropdown-item" href="Olympic gamechangers.html">Olympics gamechangers</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="fantasyDrop" data-bs-toggle="dropdown"
+              aria-expanded="false">Fantasy</a>
+            <ul class="dropdown-menu" aria-labelledby="gameChangersDrop">
+              <li><a class="dropdown-item" href="Sports bet.html">Sports betting</a></li>
+              <li><a class="dropdown-item" href="fantasy.html">Team Builder</a></li>
+              <li><a class="dropdown-item" href="#">Another Page 2</a></li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li><a class="dropdown-item" href="#">Something else</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="text-center">
+    <div class="comparison-container">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4 text-center">Compare Player Stats</h2>
+      <div class="player-select-container">
+        <select id="player1Dropdown" class="border rounded p-2">
+          <option value="">Select Player 1</option>
+        </select>
+        <select id="player2Dropdown" class="border rounded p-2">
+          <option value="">Select Player 2</option>
+        </select>
+      </div>
+      <button id="compareButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Compare
+        Players</button>
+      <div id="error-message" class="text-red-500 mt-4"></div>
+      <table class="stats-table" id="comparisonTable" style="display: none;">
+        <thead>
+          <tr>
+            <th>Statistic</th>
+            <th>Player 1</th>
+            <th>Player 2</th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    const players = [
+      { name: "LeBron James", ppg: 25.3, rpg: 8.2, apg: 6.8, spg: 1.6, bpg: 0.8, PER: 24.9 },
+      { name: "Stephen Curry", ppg: 26.4, rpg: 4.5, apg: 6.2, spg: 1.3, bpg: 0.4, PER: 22.1 },
+      { name: "Kevin Durant", ppg: 27.1, rpg: 7.1, apg: 5.6, spg: 0.8, bpg: 1.8, PER: 23.0 },
+      { name: "Giannis Antetokounmpo", ppg: 31.1, rpg: 11.4, apg: 5.8, spg: 1.2, bpg: 1.3, PER: 30.5 },
+      { name: "Luka Dončić", ppg: 27.7, rpg: 8.6, apg: 8.0, spg: 1.0, bpg: 0.5, PER: 25.2 },
+      { name: "Nikola Jokić", ppg: 26.1, rpg: 11.3, apg: 8.1, spg: 1.5, bpg: 0.9, PER: 27.9 },
+      { name: "Joel Embiid", ppg: 33.1, rpg: 10.2, apg: 4.2, spg: 1.0, bpg: 1.7, PER: 29.0 },
+      { name: "Jayson Tatum", ppg: 27.2, rpg: 8.5, apg: 4.9, spg: 1.1, bpg: 0.7, PER: 21.7 },
+      { name: "Ja Morant", ppg: 24.5, rpg: 5.7, apg: 7.0, spg: 0.9, bpg: 0.3, PER: 20.1 },
+      { name: "Devin Booker", ppg: 27.8, rpg: 5.2, apg: 5.5, spg: 0.9, bpg: 0.4, PER: 21.4 }
+    ];
+
+    function populateDropdowns() {
+      const player1Dropdown = document.getElementById("player1Dropdown");
+      const player2Dropdown = document.getElementById("player2Dropdown");
+
+      players.forEach(player => {
+        const option1 = document.createElement("option");
+        option1.value = player.name;
+        option1.textContent = player.name;
+        player1Dropdown.appendChild(option1);
+
+        const option2 = document.createElement("option");
+        option2.value = player.name;
+        option2.textContent = player.name;
+        player2Dropdown.appendChild(option2);
+      });
+    }
+
+    function comparePlayers() {
+      const player1Name = document.getElementById("player1Dropdown").value;
+      const player2Name = document.getElementById("player2Dropdown").value;
+      const comparisonTable = document.getElementById("comparisonTable");
+      const errorDiv = document.getElementById("error-message");
+
+      if (player1Name === "" || player2Name === "") {
+        errorDiv.textContent = "Please select two players to compare.";
+        comparisonTable.style.display = "none";
+        return;
+      } else if (player1Name === player2Name) {
+        errorDiv.textContent = "Please select different players.";
+        comparisonTable.style.display = "none";
+        return;
+      }
+
+      errorDiv.textContent = "";
+      comparisonTable.style.display = "table";
+      const player1 = players.find(p => p.name === player1Name);
+      const player2 = players.find(p => p.name === player2Name);
+
+      const tableBody = comparisonTable.querySelector("tbody");
+      tableBody.innerHTML = "";
+
+      const stats = [
+        { name: "Points per Game", key: "ppg" },
+        { name: "Rebounds per Game", key: "rpg" },
+        { name: "Assists per Game", key: "apg" },
+        { name: "Steals per Game", key: "spg" },
+        { name: "Blocks per Game", key: "bpg" },
+        { name: "Player Efficiency Rating", key: "PER" }
+      ];
+
+      stats.forEach(stat => {
+        const row = document.createElement("tr");
+        const statNameCell = document.createElement("td");
+        statNameCell.textContent = stat.name;
+
+        const player1StatCell = document.createElement("td");
+        player1StatCell.textContent = player1[stat.key];
+
+        const player2StatCell = document.createElement("td");
+        player2StatCell.textContent = player2[stat.key];
+
+        row.appendChild(statNameCell);
+        row.appendChild(player1StatCell);
+        row.appendChild(player2StatCell);
+        tableBody.appendChild(row);
+      });
+    }
+
+    document.getElementById("compareButton").addEventListener("click", comparePlayers);
+
+    window.onload = populateDropdowns;
+  </script>
+      <style>
+        .custom-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+
+        .custom-button i {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+    </style>
+<div class="text-center mt-5">
+    <a href="Sports bet.html" class="custom-button" onclick="buttonClick()">
+        <i class="fas fa-plus"></i> Thinking about placing bets on any of these players?
+    </a>
+    <p id="output" class="mt-3"></p>
+</div>
+    <script>
+        function buttonClick() {
+            document.getElementById("output").innerHTML = "Button Clicked!";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,13 +1,15 @@
 document.addEventListener("DOMContentLoaded", () => {
   const positions = ["pg", "sg", "sf", "pf", "c"];
   const season = 2023;
-  const proxy = "https://corsproxy.io/?";
-  const baseUrl = "https://www.balldontlie.io/api/v1";
-
+  const apiKey = '9fa957b6-ed86-4322-8679-b35a344f21ee'
   let playerMap = {}; // { playerId: fullName }
 
   // Fetch first 100 players
-  fetch(`${proxy}${baseUrl}/players?per_page=100`)
+fetch("https://www.balldontlie.io/api/v1/players?per_page=100")
+    headers: {
+    Authorization: `Bearer ${apiKey}`,
+  },
+})
     .then(res => res.json())
     .then(data => {
       const players = data.data;

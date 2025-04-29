@@ -6,18 +6,19 @@ document.addEventListener("DOMContentLoaded", () => {
     Authorization: "Bearer 9fa957b6-ed86-4322-8679-b35a344f21ee"
   };
 
-  // Fetch player list (with auth)
   fetch("https://api.balldontlie.io/v1/players?per_page=100", { headers })
-    .then(res => res.json())
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch player data.");
+      return res.json();
+    })
     .then(data => {
+      if (!data.data || !Array.isArray(data.data)) throw new Error("Invalid player data.");
       const players = data.data;
 
-      // Build ID → Full Name map
       playerMap = Object.fromEntries(
         players.map(p => [p.id, `${p.first_name} ${p.last_name}`])
       );
 
-      // Populate dropdowns
       positions.forEach(pos => {
         const select = document.getElementById(pos);
         select.innerHTML = "";
@@ -36,7 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       });
 
-      // Load saved team if available
       const saved = localStorage.getItem("fantasyTeam");
       if (saved) {
         const team = JSON.parse(saved);
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(err => {
       console.error("Could not load players:", err);
-      alert("Failed to load players. Please check your API key or try again later.");
+      alert("Failed to load players. Check your API key or try again later.");
     });
 
   document.getElementById("fantasyForm").addEventListener("submit", (e) => {

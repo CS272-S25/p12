@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", () => {
-  import { BalldontlieAPI } from "@balldontlie/sdk";
   const positions = ["pg", "sg", "sf", "pf", "c"];
   let playerMap = {};
 

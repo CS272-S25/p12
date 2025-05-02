@@ -260,8 +260,10 @@
         newComment.innerHTML = `<strong class="user">You:</strong><p>${commentText}</p>`;
         commentsSection.appendChild(newComment);
         commentInput.value = '';
+        console.log("successful");
       } else {
         alert('Please enter a comment before submitting.');
+        console.log("unsuccessful");
       }
     });
   </script>

@@ -78,14 +78,24 @@ document.addEventListener("DOMContentLoaded", () => {
       const card = document.createElement("div");
       card.className = "col-md-4";
 
-      card.innerHTML = `
-        <div class="card h-100 shadow-sm">
-          <div class="card-body">
-            <h5 class="card-title">${pos}</h5>
-            <p class="card-text">${name}</p>
-          </div>
-        </div>
-      `;
+      const wrapper = document.createElement('div');
+      wrapper.classList.add('card', 'h-100', 'shadow-sm');
+
+      const body = document.createElement('div');
+      body.classList.add('card-body');
+      wrapper.appendChild(body);
+
+      const titleEl = document.createElement('h5');
+      titleEl.classList.add('card-title');
+      titleEl.textContent = pos;
+      body.appendChild(titleEl);
+
+      const nameEl = document.createElement('p');
+      nameEl.classList.add('card-text');
+      nameEl.textContent = name;
+      body.appendChild(nameEl);
+
+      card.appendChild(wrapper);
 
       teamDisplay.appendChild(card);
     }

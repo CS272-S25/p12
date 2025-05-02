@@ -29,6 +29,7 @@ const TEAM_LOGOS = getNBALogos();
       return ranges;
     }
 
+    //fetch with date ranges to speed up fetch time
     async function fetchGamesInRange(start, end) {
       const all = [];
       let cursor = null;
@@ -92,9 +93,9 @@ const TEAM_LOGOS = getNBALogos();
       return map;
     }
 
+    //manually build standings from all games played
     try {
       const standingsMap = await fetchTeamsMap();
-      console.log(standingsMap)
       const games = await fetchAllRegularSeasonGames();
 
       games.forEach(game => {
@@ -103,12 +104,6 @@ const TEAM_LOGOS = getNBALogos();
         const loser  = game.home_team_score > game.visitor_team_score ? away : home;
         standingsMap[winner.id].wins++;
         standingsMap[loser.id].losses++;
-        if (game.home_team_score == NaN || game.away_team_score == NaN) {
-            console.log(game)
-        }
-        if (typeof(game.home_team_score) != 'number' || typeof(game.away_team_score) != 'number') {
-            console.log(typeof(game.away_team_score))
-        }
         standingsMap[home.id].pf += parseInt(game.home_team_score)
         standingsMap[home.id].pa += parseInt(game.visitor_team_score)
         standingsMap[away.id].pf += parseInt(game.visitor_team_score)

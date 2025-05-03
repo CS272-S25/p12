@@ -10,7 +10,7 @@ const TEAM_LOGOS = getNBALogos();
       console.error('Missing #standings-container');
       return;
     }
-
+    //Prepare fetch parameters
     function getWeeklyRanges(startStr, endStr) {
       const ranges = [];
       let cur = new Date(startStr);
@@ -124,7 +124,7 @@ const TEAM_LOGOS = getNBALogos();
           return pb - pa;
         });
       });
-
+      //Display team data
       container.textContent = '';
       Object.entries(byConf).forEach(([conf, teams]) => {
         const section = document.createElement('section');

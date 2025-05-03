@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headers = {
     Authorization: "9fa957b6-ed86-4322-8679-b35a344f21ee"
   };
-
+  //pull player data
   fetch("https://api.balldontlie.io/v1/players", { headers })
     .then(res => {
       if (!res.ok) throw new Error("Failed to fetch player data.");
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       if (!data.data || !Array.isArray(data.data)) throw new Error("Invalid player data.");
       const players = data.data;
-
+      
       playerMap = Object.fromEntries(
         players.map(p => [p.id, `${p.first_name} ${p.last_name}`])
       );
